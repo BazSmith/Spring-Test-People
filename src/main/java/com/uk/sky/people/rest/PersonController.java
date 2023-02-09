@@ -12,6 +12,7 @@ import java.util.List;
 public class PersonController {
 
     // the service variable is a dependency
+//    @Autowired  -> also injects the dependency but isn't as good as contructor injection
     private PersonService service;
 
     public PersonController(PersonService service) {

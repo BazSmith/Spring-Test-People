@@ -8,10 +8,11 @@ import javax.validation.constraints.*;
 public class Person {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // auto increment
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto_Increment
+    private Integer id;
 
     @Size(min = 2, max = 50)
-    @Column(nullable = false) //not null
+    @Column(nullable = false) // NOT NULL
     private String name;
 
     @Min(0)
@@ -32,6 +33,14 @@ public class Person {
 
     // REQUIRED
     public Person() {
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

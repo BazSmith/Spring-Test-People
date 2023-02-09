@@ -7,13 +7,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PersonServiceDB implements PersonService{
+public class PersonServiceDB implements PersonService {
+
+    private PersonRepo repo;
 
     public PersonServiceDB(PersonRepo repo) {
         this.repo = repo;
     }
 
-    private PersonRepo repo;
     @Override
     public Person createPerson(Person p) {
         return this.repo.save(p);
@@ -37,13 +38,14 @@ public class PersonServiceDB implements PersonService{
         if (age != null) old.setAge(age);
         if (job != null) old.setJob(job);
 
+
         return this.repo.save(old);
     }
 
     @Override
     public Person remove(int id) {
         Person existing = this.getById(id);
-        this.repo.deleteById(id); //actually does the delete
+        this.repo.deleteById(id); // actually does the delete
         return existing;
     }
 }
