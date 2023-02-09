@@ -1,9 +1,11 @@
 package com.uk.sky.people.service;
 
 import com.uk.sky.people.domain.Person;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class PersonServiceDB implements PersonService {
     @Override
     public Person createPerson(Person p) {
