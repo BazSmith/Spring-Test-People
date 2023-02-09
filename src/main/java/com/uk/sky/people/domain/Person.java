@@ -1,6 +1,6 @@
 package com.uk.sky.people.domain;
 
-import javax.validation.Valid;
+
 import javax.validation.constraints.*;
 
 public class Person {
@@ -13,23 +13,26 @@ public class Person {
     private int age;
 
 
-    @NotBlank
+    @NotNull // -> null
+//    @NotEmpty -> ""
+//    @NotBlank -> "   "
     private String job;
 
-    public Person(String name, int age, String job){
+    public Person(String name, int age, String job) {
         this.name = name;
         this.age = age;
         this.job = job;
     }
 
-
-    //REQUIRED
+    // REQUIRED
+    public Person() {
+    }
 
     public String getName() {
         return name;
     }
 
-    public void setName (String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
