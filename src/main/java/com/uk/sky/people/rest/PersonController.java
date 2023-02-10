@@ -1,11 +1,13 @@
 package com.uk.sky.people.rest;
 
 import com.uk.sky.people.domain.Person;
+import com.uk.sky.people.dto.PersonDTO;
 import com.uk.sky.people.service.PersonService;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.websocket.server.PathParam;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -25,28 +27,44 @@ public class PersonController {
     }
 
     @PostMapping("/create")
-    public Person addPerson(@RequestBody @Valid Person person) { // pull person from the body of the req
-        return this.service.createPerson(person);
+    public PersonDTO addPerson(@RequestBody @Valid Person person) { // pull person from the body of the req
+        Person created = this.service.createPerson(person);
+        PersonDTO dto = new PersonDTO(created.getName(), created.getAge(), created.getJob());
+        return dto;
     }
 
     @GetMapping("/getAll")
-    public List<Person> getAll() {
-        return this.service.getAll();
+    public List<PersonDTO> getAll() {
+        List<Person> found = this.service.getAll();
+        List<PersonDTO> dtos = new ArrayList<>();
+
+        for (Person person : found)
+            dtos.add(new PersonDTO(person.getName(), person.getAge(), person.getJob()));
+
+        return dtos;
+
     }
 
     @GetMapping("/get/{id}")
-    public Person getPerson(@PathVariable int id) { // pulls id from the path (url)
-        return this.service.getById(id);
+    public PersonDTO getPerson(@PathVariable int id) { // pulls id from the path (url)
+        Person found = this.service.getById(id);
+        PersonDTO dto = new PersonDTO(found.getName(), found.getAge(), found.getJob());
+
+        return dto;
     }
 
     @PatchMapping("/update/{id}")
-    public Person updatePerson(@PathVariable int id, @PathParam("name") String name, @PathParam("age") Integer age, @PathParam("job") String job) {
-        return this.service.update(id, name, age, job);
+    public PersonDTO updatePerson(@PathVariable int id, @PathParam("name") String name, @PathParam("age") Integer age, @PathParam("job") String job) {
+        Person updated = this.service.update(id,name,age,job);
+        PersonDTO dto = new PersonDTO(updated.getName(), updated.getAge(), updated.getJob());
+        return dto;
     }
 
     @DeleteMapping("/remove/{id}")
-    public Person removePerson(@PathVariable int id) {
-        return this.service.remove(id);
+    public PersonDTO removePerson(@PathVariable int id) {
+        Person removed = this.service.remove(id);
+        PersonDTO dto = new PersonDTO(removed.getName(), removed.getAge(), removed.getJob());
+        return dto;
     }
 
 }

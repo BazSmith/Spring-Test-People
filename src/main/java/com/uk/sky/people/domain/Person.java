@@ -25,11 +25,16 @@ public class Person {
 //    @NotBlank -> "   "
     private String job;
 
-    public Person(String name, int age, String job) {
+    private String niNumber;
+
+    public Person(Integer id, String name, int age, String job, String niNumber) {
+        this.id = id;
         this.name = name;
         this.age = age;
         this.job = job;
+        this.niNumber = niNumber;
     }
+
 
     // REQUIRED
     public Person() {
@@ -65,5 +70,13 @@ public class Person {
 
     public void setJob(String job) {
         this.job = job;
+    }
+
+    public String getNiNumber() {
+        return niNumber;
+    }
+
+    public void setNiNumber(String niNumber) {
+        this.niNumber = niNumber;
     }
 }
