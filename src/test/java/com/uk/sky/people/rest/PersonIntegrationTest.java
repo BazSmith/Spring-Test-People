@@ -37,6 +37,9 @@ public class PersonIntegrationTest {
         PersonDTO created = new PersonDTO("Baz", 37, "Software");
         ResultMatcher checkBody = MockMvcResultMatchers.content().json(this.mapper.writeValueAsString(created));
 
+        this.mvc.perform(req).andExpect(checkStatus).andExpect(checkBody);
+
+
     }
 
 }
