@@ -4,6 +4,9 @@ import com.uk.sky.people.domain.Person;
 import com.uk.sky.people.dto.PersonDTO;
 import com.uk.sky.people.dto.PersonReqDTO;
 import com.uk.sky.people.service.PersonService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -28,13 +31,13 @@ public class PersonController {
     }
 
     @PostMapping("/create")
-    public PersonDTO addPerson(@RequestBody PersonReqDTO person) { // pull person from the body of the req
+    public ResponseEntity <PersonDTO> addPerson(@RequestBody PersonReqDTO person) { // pull person from the body of the req
         Person toCreate = new Person(person.getFullName(), person.getOldNess(), person.getOccupation(), person.getNotNiNumber());
         Person created =  this.service.createPerson(toCreate);
 
         PersonDTO dto = new PersonDTO(created.getName(), created.getAge(), created.getJob());
 
-        return dto;
+        return new ResponseEntity<PersonDTO>(dto, HttpStatus.CREATED);
     }
 
     @GetMapping("/getAll")

@@ -27,20 +27,15 @@ public class Person {
 
     private String niNumber;
 
-    public Person(Integer id, String name, int age, String job, String niNumber) {
-        this.id = id;
+    public Person(String name, int age, String job, String niNumber) {
         this.name = name;
         this.age = age;
         this.job = job;
         this.niNumber = niNumber;
     }
 
-
     // REQUIRED
     public Person() {
-    }
-
-    public Person(String fullName, Integer oldNess, String occupation, String notNiNumber) {
     }
 
     public Integer getId() {
@@ -49,6 +44,14 @@ public class Person {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getNiNumber() {
+        return niNumber;
+    }
+
+    public void setNiNumber(String niNumber) {
+        this.niNumber = niNumber;
     }
 
     public String getName() {
@@ -73,13 +76,5 @@ public class Person {
 
     public void setJob(String job) {
         this.job = job;
-    }
-
-    public String getNiNumber() {
-        return niNumber;
-    }
-
-    public void setNiNumber(String niNumber) {
-        this.niNumber = niNumber;
     }
 }
