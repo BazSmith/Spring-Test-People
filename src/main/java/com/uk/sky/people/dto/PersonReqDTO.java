@@ -1,8 +1,6 @@
 package com.uk.sky.people.dto;
 
-import javax.persistence.criteria.CriteriaBuilder;
-
-public class PersonDTO {
+public class PersonReqDTO {
 
     private String fullName;
 
@@ -10,14 +8,17 @@ public class PersonDTO {
 
     private String occupation;
 
+    private String notNiNumber;
 
-    public PersonDTO(String fullName, Integer oldNess, String occupation) {
+    public PersonReqDTO(String fullName, Integer oldNess, String occupation, String notNiNumber) {
         this.fullName = fullName;
         this.oldNess = oldNess;
         this.occupation = occupation;
+        this.notNiNumber = notNiNumber;
     }
 
-    public PersonDTO() {
+    public PersonReqDTO() {
+
     }
 
     public String getFullName() {
@@ -42,5 +43,13 @@ public class PersonDTO {
 
     public void setOccupation(String occupation) {
         this.occupation = occupation;
+    }
+
+    public String getNotNiNumber() {
+        return notNiNumber;
+    }
+
+    public void setNotNiNumber(String notNiNumber) {
+        this.notNiNumber = notNiNumber;
     }
 }

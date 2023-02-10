@@ -40,6 +40,9 @@ public class Person {
     public Person() {
     }
 
+    public Person(String fullName, Integer oldNess, String occupation, String notNiNumber) {
+    }
+
     public Integer getId() {
         return id;
     }
