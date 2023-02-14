@@ -1,4 +1,4 @@
-package com.uk.sky.people.rest;
+package com.uk.sky.people.Controllers;
 
 import com.uk.sky.people.domain.Person;
 import com.uk.sky.people.dto.PersonDTO;
@@ -6,10 +6,8 @@ import com.uk.sky.people.dto.PersonReqDTO;
 import com.uk.sky.people.service.PersonService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
 import javax.websocket.server.PathParam;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +25,7 @@ public class PersonController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public String greeting() {
-        return "Hello, World!";
+        return "Hello, World! this is a spring boot app running on AWS!!! Very cool!!!";
     }
 
     @PostMapping("/create")

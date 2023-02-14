@@ -1,4 +1,4 @@
-package com.uk.sky.people.rest;
+package com.uk.sky.people.Controllers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.uk.sky.people.dto.PersonDTO;

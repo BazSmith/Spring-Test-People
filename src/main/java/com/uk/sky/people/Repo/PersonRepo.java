@@ -1,4 +1,4 @@
-package com.uk.sky.people.persistence;
+package com.uk.sky.people.Repo;
 
 import com.uk.sky.people.domain.Person;
 import org.springframework.data.jpa.repository.JpaRepository;

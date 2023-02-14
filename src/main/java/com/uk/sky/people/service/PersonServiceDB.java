@@ -2,7 +2,7 @@ package com.uk.sky.people.service;
 
 import com.uk.sky.people.domain.Person;
 import com.uk.sky.people.exceptions.PersonNotFoundException;
-import com.uk.sky.people.persistence.PersonRepo;
+import com.uk.sky.people.Repo.PersonRepo;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
